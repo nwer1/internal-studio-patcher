@@ -3,7 +3,7 @@
 #include <filesystem>
 
 constexpr size_t offsets[] = {
-	0x6f58bda, 0x6f58c16, 0x6f58c1f, 0x6f58c57, 0x6f58c60, 0x6f58c8f, 0x6f58c98, 0x6f58cba, 0x6f58d1a, 0x6f58d23
+	0x2833aea, 0x2833b26, 0x2833b2f, 0x2833b67, 0x2833b70, 0x2833b9f, 0x2833ba8, 0x2833bca, 0x2833c2a, 0x2833c33
 };
 
 int main(int argc, const char* argv[])
@@ -23,8 +23,8 @@ int main(int argc, const char* argv[])
 
 			for (size_t offset : offsets)
 			{
-				file.seekp((std::streamoff)offset, std::ios::beg);
-				file.put((char)0xFF);
+				file.seekp(static_cast<std::streamoff>(offset), std::ios::beg);
+				file.put(static_cast<char>(0xFF));
 
 				if (file.good())
 					successRate++;
